@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import Sidebar from "./components/SideBar";
+import TopBar from "./components/TopBar";
+import SalesAnalysis from "./components/SalesAnalysis";
+import SalesByItem from "./components/SalesByItem";
+import AverageOrderValue from "./components/AverageOrderValue";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col h-screen">
+      <TopBar />
+      <div className="flex flex-1">
+        <Sidebar />
+        <div className="flex-1 p-8">
+          <div className="grid grid-cols-3 gap-4">
+            <div className="col-span-2">
+              <SalesAnalysis />
+            </div>
+
+            <AverageOrderValue />
+
+            <div className="col-span-3 flex justify-end mt-[-550px]">
+              <SalesByItem />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
